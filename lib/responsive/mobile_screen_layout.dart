@@ -11,23 +11,6 @@ class MobileScreenLayout extends StatefulWidget {
 }
 
 class _MobileScreenLayoutState extends State<MobileScreenLayout> {
-  // String username = '';
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getUsername();
-  // }
-  //
-  // void getUsername() async {
-  //   DocumentSnapshot snap = await FirebaseFirestore.instance
-  //       .collection('users')
-  //       .doc(FirebaseAuth.instance.currentUser!.uid)
-  //       .get();
-  //   setState(() {
-  //     username = (snap.data() as Map<String, dynamic>)['username'];
-  //   });
-  // }
   int _page = 0;
   late PageController pageController;
 
@@ -57,6 +40,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         children: homeScreenItems,
         controller: pageController,
         onPageChanged: onPageChanged,
